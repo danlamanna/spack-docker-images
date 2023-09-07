@@ -24,6 +24,8 @@ jobs:
             image-version: 0.0.1
           - docker-image: gh-gl-sync
             image-version: 0.0.2
+          - docker-image: cache-indexer
+            image-version: 0.0.2
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -42,4 +44,4 @@ jobs:
           context: ./${{ matrix.docker-image }}
           file: ./${{ matrix.docker-image }}/Dockerfile
           push: true
-          tags: ghcr.io/mvandenburgh/${{ matrix.docker-image }}:${{ matrix.image-version }}
+          tags: ghcr.io/danlamanna/${{ matrix.docker-image }}:${{ matrix.image-version }}
