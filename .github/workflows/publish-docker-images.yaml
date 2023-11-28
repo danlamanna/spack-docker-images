@@ -12,20 +12,22 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - docker-image: opensearch-index-build-logs
-            image-version: 0.0.6
-          - docker-image: gitlab-error-processor
-            image-version: 0.0.1
-          - docker-image: upload-gitlab-failure-logs
-            image-version: 0.0.2
-          - docker-image: oom-tracker
-            image-version: 0.0.1
-          - docker-image: migrate-opensearch
-            image-version: 0.0.1
-          - docker-image: gh-gl-sync
-            image-version: 0.0.2
-          - docker-image: cache-indexer
-            image-version: 0.0.2
+          # - docker-image: opensearch-index-build-logs
+          #   image-version: 0.0.6
+          # - docker-image: gitlab-error-processor
+          #   image-version: 0.0.1
+          # - docker-image: upload-gitlab-failure-logs
+          #   image-version: 0.0.2
+          # - docker-image: oom-tracker
+          #   image-version: 0.0.1
+          # - docker-image: migrate-opensearch
+          #   image-version: 0.0.1
+          # - docker-image: gh-gl-sync
+          #   image-version: 0.0.2
+          # - docker-image: cache-indexer
+          #   image-version: 0.0.2
+          - docker-image: webhook-handler
+            image-version: 0.0.5
     steps:
       - name: Checkout
         uses: actions/checkout@v3
