@@ -9,6 +9,7 @@ from analytics.job_log_uploader import upload_job_log
 
 def webhook_handler(request: HttpRequest) -> HttpResponse:
     print("here")
+    print(request.body)
     job_input_data: dict[str, Any] = json.loads(request.body)
 
     if job_input_data.get("object_kind") != "build":

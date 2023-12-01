@@ -39,9 +39,13 @@ def upload_job_log(job_input_data: dict[str, Any]) -> None:
     #    "project": {"web_url": "https://gitlab.spack.io/spack/spack"},
     # }
 
+    print(job_input_data)
     # Retrieve project and job from gitlab API
+    print("getting project")
     project = gl.projects.get(job_input_data["project_id"])
+    print("getting job")
     job = project.jobs.get(job_input_data["build_id"])
+    print("getting trace")
     job_trace: str = job.trace().decode()
 
     # TODO: this still leaves trailing ;m in the output
@@ -57,9 +61,11 @@ def upload_job_log(job_input_data: dict[str, Any]) -> None:
             settings.OPENSEARCH_PASSWORD,
         ),
     )
+    print("making doc")
     doc = JobLog(
         **job_input_data,
         job_url=f'{job_input_data["project"]["web_url"]}/-/jobs/{job_input_data["build_id"]}',
         job_trace=job_trace,
     )
+    print("saving doc")
     doc.save()
