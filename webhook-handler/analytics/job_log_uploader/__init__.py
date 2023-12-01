@@ -8,6 +8,7 @@ import gitlab
 from kubernetes import client, config
 from opensearch_dsl import Date, Document, connections
 
+from django.conf import settings
 
 config.load_config()
 v1_client = client.CoreV1Api()
