@@ -46,6 +46,8 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# TODO: parameterize
+SECRET_KEY = "u32yeuighw8567ywehifkaspo5839oitehfgknhsdljgyt29846yth"
 
 # Custom settings
 
